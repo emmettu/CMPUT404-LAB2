@@ -1,0 +1,40 @@
+1. socket.SOCK_STREAM when creating the socket
+2. A server socket binds and listens to a port and address, client sockets connect.
+3. socket.SO_REUSEADDR as a socketopt
+4. 
+GET / HTTP/1.1
+Host: 127.0.0.1:8000
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Cache-Control: max-age=0
+
+We get the request they made, which route they want, what http version they made, the port and address they requested, the user agent, and some other header stuff, also the port they requested from.
+
+5.
+
+HTTP/1.1 301 Moved Permanently
+Location: http://www.google.com:8000/
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 17 Jan 2017 16:11:22 GMT
+Expires: Thu, 16 Feb 2017 16:11:22 GMT
+Cache-Control: public, max-age=2592000
+Server: gws
+Content-Length: 224
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: SAMEORIGIN
+
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com:8000/">here</A>.
+</BODY></HTML>
+
+A 301 stating the document has moved.
+
+6.
+
